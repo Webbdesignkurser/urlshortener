@@ -1,0 +1,20 @@
+{
+  "name": "urlshortener",
+  "version": "0.0.1",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Webbdesignkurser/urlshortener.git"
+  },
+  "homepage": "http://wdk.se",
+  "author": "David Marby <david@dmarby.se> http://dmarby.se",
+  "dependencies": {
+    "restify": "~2.6.1",
+    "unirest": "^0.1.8"
+  }
+}
