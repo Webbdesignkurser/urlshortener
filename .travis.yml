@@ -1,4 +1,5 @@
 deploy:
+	before_deploy: "echo 'ready?'"
   provider: heroku
   buildpack: nodejs
   api_key:
