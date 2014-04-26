@@ -1,7 +1,6 @@
 deploy:
   provider: heroku
+  buildpack: nodejs
   api_key:
     secure: AiRvR4qnxldk+ao6RMx2xMmFHu869OgjDjsQLGiRZQDF9wqzMCnheaTl9RNqHaaav7DLzp2iDuLa2FVQoyfV8RGdR8NFq0jVVjQWS8hII/zKQuBW767d/ebM0DSwYyhB1PYbyF2y3Yjt8pNcvykIkZoIPq5Ptf1F84yadGYNPig=
   app: wdk
-  on:
-    repo: Webbdesignkurser/urlshortener

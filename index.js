@@ -42,7 +42,7 @@ app.post('/webhook', function (req, res, next) {
     res.send(200);
     setTimeout(function() {
       getUrls();
-    }, 1000 * 60 * 3);
+    }, 1000 * 20);
 });
 
 app.listen(process.env.PORT || 5000);
