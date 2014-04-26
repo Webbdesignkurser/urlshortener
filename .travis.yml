@@ -1,5 +1,8 @@
+language: node_js
+node_js:
+  - "0.10"
 deploy:
-	before_deploy: "echo 'ready?'"
+  before_deploy: "echo 'ready?'"
   provider: heroku
   buildpack: nodejs
   api_key:
