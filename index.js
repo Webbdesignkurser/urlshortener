@@ -3,8 +3,7 @@ var unirest = require('unirest');
 var urls = {};
 
 function getUrls() {
-  var url = "http://webbdesignkurser.github.io/website/short.json"
-  //var url = "http://localhost:4000/short.json"
+  var url = "https://webbdesignkurser.se/short.json"
 
   unirest.get(url).end(function (response) {
       if (response.error) {
@@ -24,7 +23,7 @@ setInterval(function() {
 var app = restify.createServer();
 
 app.get('/', function (req, res, next) {
-  res.header('Location', 'http://webbdesignkurser.se');
+  res.header('Location', 'https://webbdesignkurser.se');
   res.send(301);
 })
 
