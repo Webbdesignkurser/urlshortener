@@ -1,47 +1,38 @@
-var restify = require('restify');
-var unirest = require('unirest');
-var urls = {};
+var restify = require('restify')
+var unirest = require('unirest')
+var urls = {}
 
-function getUrls() {
-  var url = "https://webbdesignkurser.se/short.json"
+var get_urls = function () {
+  unirest.get('https://webbdesignkurser.se/short.json').end(function (response) {
+    if (response.error) {
+        return
+    }
+    
+    urls = response.body
+  })
+}
 
-  unirest.get(url).end(function (response) {
-      if (response.error) {
-          return;
-      }
-      urls = response.body;
-  });
-};
+get_urls()
 
-getUrls();
-
-setInterval(function() {
-    unirest.get('http://wdk.se').end(function (response) {});
-}, 1000 * 60 * 20);
-
-
-var app = restify.createServer();
+var app = restify.createServer()
 
 app.get('/', function (req, res, next) {
-  res.header('Location', 'https://webbdesignkurser.se');
-  res.send(301);
+  res.header('Location', 'https://webbdesignkurser.se')
+  res.send(301)
 })
 
-app.get("/:hash", function (req, res, next) {
-    if(urls[req.params.hash] != null) {
-      res.header('Location', urls[req.params.hash]);
-      res.send(301);
+app.get('/:hash', function (req, res, next) {
+    if (urls[req.params.hash]) {
+      res.header('Location', urls[req.params.hash])
+      res.send(301)
     } else {
-      res.send("Not found!");
-      res.send(404);
+      res.send(404, 'Not found!')
     }
-});
+})
 
 app.post('/webhook', function (req, res, next) {
-    res.send(200);
-    setTimeout(function() {
-      getUrls();
-    }, 1000 * 20);
-});
+    res.send(200)
+    setTimeout(get_urls, 1000 * 20)
+})
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000)

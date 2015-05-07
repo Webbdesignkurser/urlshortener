@@ -14,7 +14,7 @@
   "homepage": "http://wdk.se",
   "author": "David Marby <david@dmarby.se> http://dmarby.se",
   "dependencies": {
-    "restify": "~2.6.1",
-    "unirest": "^0.1.8"
+    "restify": "^3.0.2",
+    "unirest": "^0.4.0"
   }
 }
